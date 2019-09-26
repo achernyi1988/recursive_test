@@ -1,0 +1,43 @@
+{
+	"company": {
+		"luxoft": {
+			"accountant": [
+				{
+					"name": "Lena"
+				},
+				{
+					"name": "Ira"
+				}
+			],
+			"developer": [
+				{
+					"name": "Alex"
+				},
+				{
+					"name": "Max"
+				}
+			]
+		},
+		"beetroot": {
+			"accountant": [
+				{
+					"name": "Gena"
+				}
+			],
+			"developer": [
+				{
+					"name": "Tom"
+				},
+				{
+					"name": "Max"
+				},
+				{
+					"name": "Bob"
+				}
+			]
+		}
+	}
+}
+
+
+ 
