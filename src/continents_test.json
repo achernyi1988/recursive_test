@@ -1,0 +1,64 @@
+{
+    "data": {
+        "continents": [{
+                "name": "Africa",
+                "code": "AF",
+                "countries": [{
+                        "name": "Angola",
+                        "code": "AO",
+                        "languages": [{
+                                "code": "pt",
+                                "name": "Portuguese",
+                                "__typename": "Language"
+                            }
+                        ],
+                        "__typename": "Country"
+                    }, {
+                        "name": "Burkina Faso",
+                        "code": "BF",
+                        "languages": [{
+                                "code": "fr",
+                                "name": "French",
+                                "__typename": "Language"
+                            }, {
+                                "code": "ff",
+                                "name": "Peul",
+                                "__typename": "Language"
+                            }
+                        ],
+                        "__typename": "Country"
+                    }
+                ],
+                "__typename": "Continent"
+            },
+            {
+                "name": "Europe",
+                "code": "EU",
+                "countries": [{
+                        "name": "Andorra",
+                        "code": "AD",
+                        "languages": [{
+                                "code": "ca",
+                                "name": "Catalan",
+                                "__typename": "Language"
+                            }
+                        ],
+                        "__typename": "Country"
+                    }, {
+                        "name": "Albania",
+                        "code": "AL",
+                        "languages": [{
+                                "code": "sq",
+                                "name": "Albanian",
+                                "__typename": "Language"
+                            }
+                        ],
+                        "__typename": "Country"
+                    }
+                ],
+                "__typename": "Continent"
+            }
+
+        ]
+    }
+}
