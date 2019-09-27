@@ -4,8 +4,8 @@ import { TreeView, processTreeViewItems, handleTreeViewCheckChange, moveTreeView
 
 
 const tree = [{
-    text: 'Furniture', expanded: false, items: [
-        { text: 'Tables & Chairs' }, { text: 'Sofas' }, { text: 'Occasional Furniture' }]
+    text: 'Furniture', items: [
+        { text: 'Tables & Chairs' , items: [{text: "test"}]}, { text: 'Sofas' }, { text: 'Occasional Furniture' }]
 }, {
     text: 'Decor', items: [
         { text: 'Bed Linen' }, { text: 'Curtains & Blinds' }, { text: 'Carpets' }]
