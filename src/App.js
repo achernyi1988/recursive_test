@@ -88,15 +88,17 @@ class App extends React.Component {
         if( item.list.length === 0){
             console.log("child");
             //collapse all except for root
-            this.collapse(item.root);
-            item.root.expanded = true;
+            item.root.list.map((elem) => {
+                this.collapse(elem);
+            })
+
         }else{
             item.list.map((elem) => {
 
                 if (elem.expanded) {
-                    return this.collapse(elem);
+                    this.collapse(elem);
                 } else {
-                    return this.expand(elem);
+                    this.expand(elem);
                 }
             })
         }
