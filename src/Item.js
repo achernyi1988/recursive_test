@@ -1,17 +1,17 @@
 import React from 'react';
 
-class Item extends React.Component{
+class Item extends React.Component {
 
-    componentDidMount(){
+    componentDidMount() {
         console.log("Item");
     }
 
-    handlerClick = () =>{
+    handlerClick = () => {
         this.props.onClickItem(this.props.element);
     }
 
-    render(){
-      //  console.log(this.props.element)
+    render() {
+        //  console.log(this.props.element)
 
         return <div>
             {this.props.element.expanded ?

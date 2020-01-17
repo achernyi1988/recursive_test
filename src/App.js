@@ -11,6 +11,7 @@ function recursiveIteration(object, node) {
         //not necessary hasOwnProperty method since this json contains properties
         if (object.hasOwnProperty(property)) {
             if (typeof object[property] === "object") {
+
                 if (!(Array.isArray(node.list) && node.list.length > 0)) {
                     recursiveIteration(object[property], node);
                 } else {
@@ -20,7 +21,7 @@ function recursiveIteration(object, node) {
                 //found a property which is not an object, check for your conditions here
 
                 if (property === "name" && object[property]) {
-                    //  console.log("property === \"name\" ", object[property]);
+                     console.log("property === \"name\" ", object[property]);
                     node.list.push({name: object[property], expanded: false, list: []})
                 }
             }
@@ -29,6 +30,22 @@ function recursiveIteration(object, node) {
 
 }
 
+
+function assignRoot(nodes, root){
+
+    console.log("assignRoot",nodes , root )
+
+    if (nodes == null ) {
+        return null;
+    }
+
+    nodes.map((elem) => {
+        elem.root = root;
+
+        return assignRoot( elem.list, root);
+    })
+
+}
 class App extends React.Component {
 
     state={data:null}
@@ -36,10 +53,13 @@ class App extends React.Component {
     constructor(props){
         super(props)
 
+
         recursiveIteration(continents, node);
 
         node.list.map((elem) => {
+            assignRoot(elem.list, elem);
             return elem.expanded = true;
+
         });
 
         this.state = {data: node}
@@ -50,9 +70,10 @@ class App extends React.Component {
     }
 
     collapse = (item) => {
-        if (item == null || item.list == null) {
+        if (item == null || item.list == null ) {
             return;
         }
+
         item.expanded = false;
         item.list.map((elem) => {
 
@@ -64,14 +85,22 @@ class App extends React.Component {
     handlerClick = (item) => {
         console.log("App::handlerClick item",item);
 
-        item.list.map((elem) => {
+        if( item.list.length === 0){
+            console.log("child");
+            //collapse all except for root
+            this.collapse(item.root);
+            item.root.expanded = true;
+        }else{
+            item.list.map((elem) => {
 
-            if (elem.expanded) {
-                return this.collapse(elem);
-            } else {
-                return this.expand(elem);
-            }
-        })
+                if (elem.expanded) {
+                    return this.collapse(elem);
+                } else {
+                    return this.expand(elem);
+                }
+            })
+        }
+
 
         this.setState(this.state);
     }
@@ -103,7 +132,7 @@ class App extends React.Component {
     }
 
     render() {
-        console.log("App:render");
+        console.log("render", this.state.data);
         return (
             <div className="App">
                 {this.showNode()}
@@ -113,34 +142,3 @@ class App extends React.Component {
 }
 
 export default App;
-
-
-//
-// findElement =(data, elem)=>{
-//
-//     let result = null;
-//
-//     if(data == null || data.list == null)
-//     {
-//         return null;
-//     }
-//
-//     else if(data === elem){
-//         console.log("findElement", data);
-//         return  data;
-//     }
-//     else{
-//
-//         for(let i = 0; i < data.list.length; ++i) {
-//             result = this.findElement(data.list[i], elem);
-//
-//             if (result != null) {
-//                 return result;
-//             }
-//
-//
-//         }//)
-//         return  null;
-//     }
-//
-// }

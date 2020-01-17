@@ -2,7 +2,7 @@ let Node = {
     expanded: false,
     name:"",
     list: [],
-    parent:null
+    root:null
 }
 
 export default Node;
